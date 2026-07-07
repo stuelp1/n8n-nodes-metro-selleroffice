@@ -1,0 +1,63 @@
+{
+  "name": "n8n-nodes-metro-selleroffice",
+  "version": "0.1.0",
+  "description": "n8n community node for the METRO Markets (Seller Office) REST API. Covers orders, order lines, offers, inventory, categories, product uploads, product lists, chats and messages, multimarkets/crossborders, and event subscriptions, with built-in HMAC-SHA256 request signing for sandbox and production environments, so no manual auth headers are needed.",
+  "keywords": [
+    "n8n-community-node-package",
+    "metro",
+    "metro-markets",
+    "seller-office",
+    "marketplace"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/stuelp1/n8n-nodes-metro-selleroffice",
+  "author": {
+    "name": "stuelp1",
+    "email": "stuelp1@users.noreply.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stuelp1/n8n-nodes-metro-selleroffice.git"
+  },
+  "engines": {
+    "node": ">=18.10"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc && gulp build:icons",
+    "dev": "tsc --watch",
+    "format": "prettier nodes credentials --write",
+    "lint": "eslint nodes credentials package.json",
+    "lintfix": "eslint nodes credentials package.json --fix",
+    "prepublishOnly": "npm run build && npm run lint"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/MetroSellerOfficeApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/MetroSellerOffice/MetroSellerOffice.node.js"
+    ]
+  },
+  "dependencies": {
+    "form-data": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.16.16",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-n8n-nodes-base": "^1.16.0",
+    "gulp": "^4.0.2",
+    "jsonc-eslint-parser": "^3.1.0",
+    "n8n-workflow": "*",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.0"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
+}
