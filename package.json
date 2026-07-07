@@ -20,7 +20,7 @@
     "url": "git+https://github.com/stuelp1/n8n-nodes-metro-selleroffice.git"
   },
   "engines": {
-    "node": ">=18.10"
+    "node": ">=22.0.0"
   },
   "main": "index.js",
   "scripts": {
