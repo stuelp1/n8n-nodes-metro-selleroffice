@@ -3,11 +3,12 @@ name: Publish to npm
 # Triggered by publishing a GitHub Release. Create a release with a tag matching the
 # package.json version (e.g. v0.1.0) to publish that version to npm.
 #
-# Requires a repository secret NPM_TOKEN — an npm "Automation" access token, added under
+# Requires a repository secret NPM — an npm "Automation" access token, added under
 # GitHub repo Settings > Secrets and variables > Actions. Never shared with or visible to Claude.
 on:
   release:
     types: [published]
+  workflow_dispatch: {}
 
 jobs:
   publish:
@@ -27,4 +28,4 @@ jobs:
       - run: npm run build
       - run: npm publish --provenance --access public
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM }}
